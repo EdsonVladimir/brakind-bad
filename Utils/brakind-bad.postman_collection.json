@@ -1,0 +1,194 @@
+{
+	"info": {
+		"_postman_id": "2a5dac06-9440-4b72-8406-51306062cf0e",
+		"name": "brakind-bad",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "data brb",
+			"item": [
+				{
+					"name": "obtener",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "usuario",
+			"item": [
+				{
+					"name": "registrar usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"par_nombre\":\"edson vladimir sosa sacari\", \n    \"par_nickname\":\"esosa\", \n    \"par_email\":\"esosa@gmail.com\", \n    \"par_contrasenia\":\"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/usuario",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"par_email\":\"esosa@gmail.com\",\n    \"par_contrasenia\":\"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizar imagen",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21icmUiOiJFRFNPTiBWTEFESU1JUiBTT1NBIFNBQ0FSSSIsImVtYWlsIjoiZXNvc2FAZ21haWwuY29tIiwibmlja25hbWUiOiJFU09TQSIsImlkX3VzdWFyaW8iOiI0IiwiaWF0IjoxNjY5NTY1NDY5LCJleHAiOjE2Njk2NTE4Njl9.so3kv0PE1HxXEQIEoBwNQZ9kl8Pq6QmX4YJnf3nQQ38",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "par_img",
+									"type": "file",
+									"src": "/home/edson/Descargas/online-learning.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/api/usuario-img",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuario-img"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizar nombre",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21icmUiOiJFRFNPTiBWTEFESU1JUiBTT1NBIFNBQ0FSSSIsImVtYWlsIjoiZXNvc2FAZ21haWwuY29tIiwibmlja25hbWUiOiJFU09TQSIsImlkX3VzdWFyaW8iOiI0IiwiaWF0IjoxNjY5NTY1NDY5LCJleHAiOjE2Njk2NTE4Njl9.so3kv0PE1HxXEQIEoBwNQZ9kl8Pq6QmX4YJnf3nQQ38",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"par_nombre\":\"EDSON VLADIMIR SOSA SACARI\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/usuario-nom",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuario-nom"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizar nickname",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21icmUiOiJFRFNPTiBWTEFESU1JUiBTT1NBIFNBQ0FSSSIsImVtYWlsIjoiZXNvc2FAZ21haWwuY29tIiwibmlja25hbWUiOiJFU09TQSIsImlkX3VzdWFyaW8iOiI0IiwiaWF0IjoxNjY5NTY1NDY5LCJleHAiOjE2Njk2NTE4Njl9.so3kv0PE1HxXEQIEoBwNQZ9kl8Pq6QmX4YJnf3nQQ38",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"par_nickname\":\"ESOSA\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/usuario-nick",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuario-nick"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "imagen",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

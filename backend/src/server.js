@@ -10,7 +10,6 @@ class Server {
         this.routes();
 
     }
-
     middelwares(){
         //CORS
         this.app.use(cors());
