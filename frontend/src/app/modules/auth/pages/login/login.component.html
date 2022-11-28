@@ -1,9 +1,53 @@
-<p>login works!</p>
-<h1>Hola</h1>
-<h1>Hola</h1>
-<h1>Hola</h1>
-<h1>Hola</h1>
-<h1>Hola</h1>
-<h1>Hola</h1>
-<h1>Hola</h1>
-<h1>Hola</h1>
+
+<section id="intro">
+  <div class="row">
+    <div class="intro-text col-md-6">
+      <div class="d-flex align-items-center">
+        <img src="assets/imagen/logo.png" class="img-fluid" alt="" width="650">
+      </div>
+    </div>
+    <div class="intro-textOne col-md-6">
+      <div class="inicio-session p-4">
+        <form (ngSubmit)="sendLogin()" [formGroup]="formLogin"  class="row g-3">
+          <div class="col-md-12">
+            <h4>Iniciar sesión</h4>
+          </div>
+          <div class="col-md-12">
+            <label class="form-label">Correo</label>
+            <input
+              type="email"
+              class="form-control"
+              formControlName="par_email"
+              autocomplete="off"
+            >
+
+          </div>
+          <div class="col-md-12">
+            <label  class="form-label">Contraseña</label>
+            <input
+              type="password"
+              autocomplete="off"
+              formControlName="par_contrasenia"
+              class="form-control"
+              >
+          </div>
+          <div class="col-md-12 pt-4">
+            <button type="submit" [disabled]="formLogin.invalid" class="btn btn-outline-light btn-block btn-lg" >Iniciar sesión</button>
+          </div>
+          <div class="col-md-12 text-left pt-2">
+            <a href="#" class="link-primary">Olvide mi contraseña</a>
+          </div>
+          <div *ngIf="errorSession">
+            Ocurrio un error con tu email o password
+          </div>
+          <div class="col-md-12 text-left pt-2">
+            <a class="link-primary" (click)="registrar()">Crear cuenta</a>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>
+

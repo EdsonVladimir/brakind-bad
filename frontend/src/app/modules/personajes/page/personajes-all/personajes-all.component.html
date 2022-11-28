@@ -1,0 +1,22 @@
+<div class="col-12">
+ <div class="text-center">
+   <h1 class="display-3">Personajes</h1>
+ </div>
+</div>
+
+<div class="row row-cols-1 row-cols-md-4 g-4">
+  <div class="col" *ngFor="let item of personajes">
+    <div class="card h-100">
+      <img [src]="item.img" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Nombre: {{item?.name}}</h5>
+        <h5 class="card-title">Apodo: {{item?.nickname}}</h5>
+        <h5 class="card-title">Categoria: {{item?.category}}</h5>
+        <span>Ocupacion:</span>
+        <p class="card-text" *ngFor="let itemAux of item?.occupation">{{itemAux}}</p>
+        <p class="card-text" >Fecha de nacimiento: {{item?.birthday}}</p>
+        <button type="button" class="btn btn-primary">Añadir a Favoritos</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 const connectPG= require('../config/config-pg');
 const bcrypt = require('bcryptjs')
+const path = require("path");
 const resgitroUsusario = async (req, res)=>{
     const {par_nombre, par_nickname, par_email, par_contrasenia}=req.body;
     const query = `INSERT INTO core.usuario(nombre, nickname, email, contrasenia) VALUES ($1, $2, $3, $4)`
@@ -70,10 +71,41 @@ const actualizarImg = async (req, res)=>{
         })
     }
 }
-
+const obtenerUsuario = async (req, res)=>{
+    const {id_usuario} = req.body;
+    const query = `select nombre, nickname, img from core.usuario where id_usuario = $1`
+    try {
+        let respuesta = await connectPG.query(query, [id_usuario]);
+        respuesta = respuesta.rows[0]
+        res.status(200).json({
+            estado:1,
+            msg:'Usuario',
+            contenido:respuesta
+        })
+    } catch (err) {
+        res.status(500).json({
+            estado:0,
+            msg:'Error en el registro'
+        })
+    }
+}
+const verImagen = async (req, res)=>{
+    const {img} = req.params;
+    console.log(img)
+    try {
+       res.sendFile(__dirname +'/storage/img/'+ img);
+    } catch (err) {
+        res.status(500).json({
+            estado:0,
+            msg:'Error en el registro'
+        })
+    }
+}
 module.exports = {
     resgitroUsusario,
     actualizarNombre,
     actualizarNickname,
-    actualizarImg
+    actualizarImg,
+    obtenerUsuario,
+    verImagen
 }

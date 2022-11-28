@@ -1,20 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {AuthService} from "../../services/auth.service";
-import { Router } from '@angular/router';
+import {AuthService} from "@modules/auth/services/auth.service";
+import {Router} from "@angular/router";
+
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-registro',
+  templateUrl: './registro.component.html',
+  styleUrls: ['./registro.component.css']
 })
-export class LoginComponent implements OnInit {
+export class RegistroComponent implements OnInit {
   errorSession: boolean = false
   formLogin: FormGroup = new FormGroup({});
+  errores = [{msg: "El nickname esosa ya se encuentra registrado"}];
   constructor(private authService: AuthService, private router: Router) { }
-
   ngOnInit(): void {
     this.formLogin = new FormGroup(
       {
+        par_nombre: new FormControl('', [
+          Validators.required
+        ]),
         par_email: new FormControl('', [
           Validators.required,
           Validators.email
@@ -24,28 +28,30 @@ export class LoginComponent implements OnInit {
             Validators.required,
             Validators.minLength(5),
             Validators.maxLength(20)
+          ]),
+        par_nickname: new FormControl('',
+          [
+            Validators.required
           ])
       }
     )
   }
-  sendLogin(): void {
-    const { par_email, par_contrasenia } = this.formLogin.value
-    this.authService.sendCredentials(par_email, par_contrasenia)
+  sendRegsitro(): void {
+    this.authService.registrarUsuario(this.formLogin.value)
       .subscribe(res => {
-          console.log('Session iniciada correcta', res);
           const { token, usuario } = res
           localStorage.setItem('token', token) //TODO:📌📌📌📌
           localStorage.setItem('usuario', JSON.stringify(usuario))
-          this.router.navigate(['/home/inicio'])
+          //this.router.navigate(['/', 'tracks'])
+          this.router.navigate(['/auth/login'])
         },
-        err => {//TODO error 400>=
+        err => {
           this.errorSession = true
-          console.log('⚠⚠⚠⚠Ocurrio error con tu email o contraseña');
+          this.errores=err.error.errors;
         })
 
   }
-  registrar(){
-   // console.log("hola")
-    this.router.navigate(['/auth/registry'])
+  cerrar(){
+    this.errorSession = false;
   }
 }

@@ -1,7 +1,7 @@
 const {Router}= require('express');
 const { check } = require('express-validator');
 const { validarCampos } = require('../middlewares/validar-campos.middleware');
-const { resgitroUsusario, actualizarNombre, actualizarNickname, actualizarImg } = require('../controllers/usuario.controller');
+const { resgitroUsusario, actualizarNombre, actualizarNickname, actualizarImg, obtenerUsuario,verImagen } = require('../controllers/usuario.controller');
 const {  emailExiste,
     nicknameExiste } = require('../helpers/validators.helper');
 const {validarJWT} = require("../middlewares/validar-jwt.middleware");
@@ -19,5 +19,8 @@ router.post('/usuario',[check('par_nombre', 'El nombre es requerido').not().isEm
 router.patch('/usuario-nom', [validarJWT],[check('par_nombre', 'El nombre es requerido').not().isEmpty().trim().escape(),
                                       validarCampos],actualizarNombre);
 router.patch('/usuario-nick',[validarJWT], [check('par_nickname', 'el nickname es requerido').not().isEmpty().trim().escape(), check('par_nickname').custom(nicknameExiste),validarCampos], actualizarNickname );
-router.patch('/usuario-img/:id',[validarJWT], upload.single('par_img'), actualizarImg)
+router.patch('/usuario-img/:id',[validarJWT], upload.single('par_img'), actualizarImg);
+router.get('/usuario',[validarJWT], obtenerUsuario)
+router.get('/imagen/:img', verImagen);
+
 module.exports = router;

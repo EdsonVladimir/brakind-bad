@@ -3,7 +3,7 @@
     background-attachment: fixed;
   }
 }
-
+@import 'ngx-toastr/toastr';
 .intro-text {
   position: absolute;
   left: 0;

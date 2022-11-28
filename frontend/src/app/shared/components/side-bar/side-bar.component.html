@@ -1,0 +1,19 @@
+<div class="side-bar">
+  <h6>{{usuario.nickname}}</h6>
+  <div class="side-bar__separator line-separator"></div>
+  <div class="col-12">
+    <div class="text-center">
+      <h1 class="display-6">Menu</h1>
+    </div>
+  </div>
+    <div [routerLink]="item.router" *ngFor="let item of customOptions">
+      <div class="d-grid gap-2 my-2">
+        <button class="btn btn-outline-light" type="button">{{item.name}}</button>
+      </div>
+    </div>
+  <div >
+    <div class="d-grid gap-2 my-2">
+      <button class="btn btn-outline-light" type="button" (click)="cerrarSesion()">Cerrar Sesion</button>
+    </div>
+  </div>
+</div>

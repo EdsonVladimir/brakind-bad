@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
+import {RegistroComponent} from "./pages/registro/registro.component";
 
 const routes: Routes = [
   {
-    path: 'login',//TODO http://localhost:4200/auth/login
+    path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'registry',
+    component: RegistroComponent
   },
   {
     path: '**',
