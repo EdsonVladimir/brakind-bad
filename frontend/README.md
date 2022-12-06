@@ -3,8 +3,8 @@
 1. npm install;
 2. ng serve
 //Diseño
-Se realizo el diseño de acuerdo a los colores de lña serie y de los distintas imagenes 
-encontradas en internet por 
+Se realizo el diseño de acuerdo a los colores de la tapa de presentacion 
+encontradas en internet como por
 Ejemplo
 ![img.png](img.png)
 
