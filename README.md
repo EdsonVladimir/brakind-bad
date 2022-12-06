@@ -47,7 +47,3 @@ cree los modulos de auth, personajes, perfil, shared
 
 genere los guards, para que se valide token existen
 Continua frontend/README.md
-
-
-
-Gracias por brindarme la oportunidad
